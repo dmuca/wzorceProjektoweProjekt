@@ -30,4 +30,9 @@ public class JtsLibraryApiTest {
     double area = rectangle.getArea();
     assertEquals(area, 125, 0.000001);
   }
+
+  @Test
+  public void test(){
+//    assertEquals(,);
+  }
 }

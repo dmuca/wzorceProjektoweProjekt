@@ -2,20 +2,29 @@ package pl.com.muca;
 
 import static org.testng.Assert.assertEquals;
 
+import com.google.common.base.Function;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.util.stream.Stream;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ApartmentCalculatorTest {
+public class ApartmentCalculatorImplTest {
+  private Function<Apartment, ApartmentCalculator> calculator;
+
+  @BeforeClass
+  public void setUp(){
+    calculator = ApartmentCalculatorImpl::from;
+//    calculator = ApartmentCalculatorAdapterImpl::from;
+  }
 
   @Test
   public void calculateFloorArea_firstHouse_shouldReturnCorrectArea()
       throws FileNotFoundException, ParseException {
     File houseFile = new File("src/test/resources/house_1.txt");
     Apartment apartment = Apartment.from(houseFile);
-    ApartmentCalculator apartmentCalculator = ApartmentCalculator
-        .from(apartment);
+    ApartmentCalculator apartmentCalculator = calculator.apply(apartment);
 
     double apartmentFloorArea = apartmentCalculator.calculateFloorArea();
 
@@ -27,8 +36,7 @@ public class ApartmentCalculatorTest {
       throws FileNotFoundException, ParseException {
     File houseFile = new File("src/test/resources/house_2.txt");
     Apartment apartment = Apartment.from(houseFile);
-    ApartmentCalculator apartmentCalculator = ApartmentCalculator
-        .from(apartment);
+    ApartmentCalculator apartmentCalculator = calculator.apply(apartment);
 
     double apartmentFloorArea = apartmentCalculator.calculateFloorArea();
 
@@ -48,8 +56,7 @@ public class ApartmentCalculatorTest {
       throws FileNotFoundException, ParseException {
     File houseFile = new File("src/test/resources/house_1.txt");
     Apartment apartment = Apartment.from(houseFile);
-    ApartmentCalculator apartmentCalculator = ApartmentCalculator
-        .from(apartment);
+    ApartmentCalculator apartmentCalculator = calculator.apply(apartment);
 
     double wallSurfaceArea = apartmentCalculator.calculateWallSurfaceArea();
 
@@ -61,8 +68,7 @@ public class ApartmentCalculatorTest {
       throws FileNotFoundException, ParseException {
     File houseFile = new File("src/test/resources/house_2.txt");
     Apartment apartment = Apartment.from(houseFile);
-    ApartmentCalculator apartmentCalculator = ApartmentCalculator
-        .from(apartment);
+    ApartmentCalculator apartmentCalculator = calculator.apply(apartment);
 
     double wallSurfaceArea = apartmentCalculator.calculateWallSurfaceArea();
 
