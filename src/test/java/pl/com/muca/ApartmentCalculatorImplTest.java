@@ -6,11 +6,11 @@ import com.google.common.base.Function;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
-import java.util.stream.Stream;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class ApartmentCalculatorImplTest {
+  private final static double DELTA_ACCURACY = 10E-3;
   private Function<Apartment, ApartmentCalculator> calculator;
 
   @BeforeClass
@@ -28,7 +28,7 @@ public class ApartmentCalculatorImplTest {
 
     double apartmentFloorArea = apartmentCalculator.calculateFloorArea();
 
-    assertEquals(apartmentFloorArea, 79, 10E-5);
+    assertEquals(apartmentFloorArea, 79, DELTA_ACCURACY);
   }
 
   @Test
@@ -40,15 +40,7 @@ public class ApartmentCalculatorImplTest {
 
     double apartmentFloorArea = apartmentCalculator.calculateFloorArea();
 
-    assertEquals(apartmentFloorArea, 137, 10E-5);
-  }
-
-  @Test(expectedExceptions = FileNotFoundException.class)
-  public void createApartment_fromNonExistingFile_shouldThrowException()
-      throws FileNotFoundException, ParseException {
-    File houseFile = new File("non_existing_file");
-
-    Apartment.from(houseFile);
+    assertEquals(apartmentFloorArea, 137, DELTA_ACCURACY);
   }
 
   @Test
@@ -60,7 +52,7 @@ public class ApartmentCalculatorImplTest {
 
     double wallSurfaceArea = apartmentCalculator.calculateWallSurfaceArea();
 
-    assertEquals(wallSurfaceArea, 170, 10E-5);
+    assertEquals(wallSurfaceArea, 170, DELTA_ACCURACY);
   }
 
   @Test
@@ -72,7 +64,7 @@ public class ApartmentCalculatorImplTest {
 
     double wallSurfaceArea = apartmentCalculator.calculateWallSurfaceArea();
 
-    assertEquals(wallSurfaceArea, 275);
+    assertEquals(wallSurfaceArea, 275, DELTA_ACCURACY);
   }
 
   @Test(expectedExceptions = ParseException.class)
@@ -80,5 +72,13 @@ public class ApartmentCalculatorImplTest {
       throws FileNotFoundException, ParseException {
     File houseFile = new File("src/test/resources/file_broken_format.txt");
     Apartment apartment = Apartment.from(houseFile);
+  }
+
+  @Test(expectedExceptions = FileNotFoundException.class)
+  public void createApartment_fromNonExistingFile_shouldThrowException()
+      throws FileNotFoundException, ParseException {
+    File houseFile = new File("non_existing_file");
+
+    Apartment.from(houseFile);
   }
 }
