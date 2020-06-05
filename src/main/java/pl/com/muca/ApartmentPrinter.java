@@ -21,8 +21,8 @@ public class ApartmentPrinter {
   private static String getApartamentInfo(Apartment apartment) {
     ApartmentCalculator calc = ApartmentCalculator.from(apartment);
     return new StringBuilder()
-        .append(String.format("\tPowierzchnia podłóg: %5s m^2%n", calc.calculateFloorArea()))
-        .append(String.format("\tPowierzchnia ścian:  %5s %n", calc.calculateWallSurfaceArea()))
+        .append(String.format("\tPowierzchnia podłóg: %-9s%n", calc.calculateFloorArea()+" m^2"))
+        .append(String.format("\tPowierzchnia ścian:  %-9s %n", calc.calculateWallSurfaceArea()+" m^2"))
         .toString();
   }
 
@@ -33,9 +33,9 @@ public class ApartmentPrinter {
   private static String getRoomInfo(Room room) {
     return new StringBuilder()
         .append(String.format("%s %n", room.getName()))
-        .append(String.format("\tSzerokość: %4sm^2 %n", room.getWidth()))
-        .append(String.format("\tDługość:   %4sm^2 %n", room.getLength()))
-        .append(String.format("\tWysokość:  %4sm^2 %n", room.getHeight()))
+        .append(String.format("\tSzerokość: %-7s %n", room.getWidth()+" m^2"))
+        .append(String.format("\tDługość:   %-7s %n", room.getLength()+" m^2"))
+        .append(String.format("\tWysokość:  %-7s %n", room.getHeight()+" m^2"))
         .toString();
   }
 }
