@@ -6,7 +6,8 @@ import java.text.ParseException;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println(System.getProperty("java.class.path").replace(':','\n'));
+//    System.out.println(System.getProperty("java.class.path").replace(':','\n'));
+    ApartmentPrinter apartmentPrinter = new ApartmentPrinter(System.out);
 
     if (args.length == 0) {
       System.out.println("Musisz podać ścieżkę do pliku który chcesz wczytać.");
@@ -17,7 +18,7 @@ public class Main {
           Apartment.from(file);
           Apartment apartment = Apartment.from(file);
           ApartmentCalculator apartmentCalculator = ApartmentCalculator.from(apartment);
-          System.out.printf("Informacje dla %s. %n%s %n", file.getName(), apartmentCalculator);
+          apartmentPrinter.print(apartment);
         } catch (FileNotFoundException e) {
           System.out.printf("Nie mogłem znaleźć pliku \"%s\".%n", filePath);
           e.printStackTrace();
