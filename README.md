@@ -41,14 +41,3 @@ Dom/mieszkanie
       Powierzchnia ścian: 50m^2
                 Objętość: 500,5m^3
 ```
-
-**Budowanie oraz uruchomienie aplikacji**
-```bash
-mvn clean package
-java -jar target/ApartmentCalculator-1.0-Release.jar
-```
-
-**Uruchomienie testów**
-```bash
-mvn test
-```
