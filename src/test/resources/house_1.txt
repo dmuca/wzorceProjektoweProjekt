@@ -1,0 +1,4 @@
+Kuchnia;4;3;2.5;
+Salon;5;5;2.5;
+Łazienka;2;3;2.5;
+Salon;6;6;2.5;
