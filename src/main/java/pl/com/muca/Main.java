@@ -17,7 +17,6 @@ public class Main {
         try {
           Apartment.from(file);
           Apartment apartment = Apartment.from(file);
-          ApartmentCalculator apartmentCalculator = ApartmentCalculator.from(apartment);
           apartmentPrinter.print(apartment);
         } catch (FileNotFoundException e) {
           System.out.printf("Nie mogłem znaleźć pliku \"%s\".%n", filePath);

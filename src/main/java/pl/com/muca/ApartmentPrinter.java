@@ -13,20 +13,29 @@ public class ApartmentPrinter {
   }
 
   void print(Apartment apartment) {
-    printStream.printf("### Apartament \"%s\" %n", apartment.getName().split("\\.")[0]);
-    String roomsInfo =
-        apartment.getRoomList().stream()
-            .map(ApartmentPrinter::getRoomInfo)
-            .collect(joining());
-    printStream.printf("%s %n", roomsInfo);
+    printStream.printf("##### Apartament %s ##### %n", apartment.getName().split("\\.")[0]);
+    printStream.printf("%s %n", getApartamentInfo(apartment));
+    printStream.printf("%s %n", getRoomsInfo(apartment));
+  }
+
+  private static String getApartamentInfo(Apartment apartment) {
+    ApartmentCalculator calc = ApartmentCalculator.from(apartment);
+    return new StringBuilder()
+        .append(String.format("\tPowierzchnia podłóg: %5s m^2%n", calc.calculateFloorArea()))
+        .append(String.format("\tPowierzchnia ścian:  %5s %n", calc.calculateWallSurfaceArea()))
+        .toString();
+  }
+
+  private String getRoomsInfo(Apartment apartment) {
+    return apartment.getRoomList().stream().map(ApartmentPrinter::getRoomInfo).collect(joining());
   }
 
   private static String getRoomInfo(Room room) {
     return new StringBuilder()
         .append(String.format("%s %n", room.getName()))
-        .append(String.format("\tSzerokość: %4s %n", room.getWidth()))
-        .append(String.format("\t  Długość: %4s %n", room.getLength()))
-        .append(String.format("\t Wysokość: %4s %n", room.getHeight()))
+        .append(String.format("\tSzerokość: %4sm^2 %n", room.getWidth()))
+        .append(String.format("\tDługość:   %4sm^2 %n", room.getLength()))
+        .append(String.format("\tWysokość:  %4sm^2 %n", room.getHeight()))
         .toString();
   }
 }
