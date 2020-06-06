@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pl.com.muca.apartment.Apartment;
 import pl.com.muca.calculator.ApartmentCalculator;
-import pl.com.muca.calculator.ApartmentCalculatorAdapterImpl;
+import pl.com.muca.calculator.ApartmentCalculatorImpl;
 
 public class ApartmentCalculatorImplTest {
   private final static double DELTA_ACCURACY = 10E-3;
@@ -20,7 +20,7 @@ public class ApartmentCalculatorImplTest {
   @BeforeClass
   public void setUp(){
 //    calculator = ApartmentCalculatorImpl::from;
-    calculator = ApartmentCalculatorAdapterImpl::from;
+    calculator = ApartmentCalculatorImpl::from;
   }
 
   @Test

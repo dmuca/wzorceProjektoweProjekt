@@ -1,43 +1,40 @@
 package pl.com.muca.calculator;
 
+import com.google.common.collect.ImmutableList;
+import java.util.Collection;
+import org.locationtech.jts.geom.Polygon;
 import pl.com.muca.apartment.Apartment;
-import pl.com.muca.apartment.Room;
 
-public class ApartmentCalculatorImpl implements ApartmentCalculator{
+public class ApartmentCalculatorImpl implements ApartmentCalculator {
+  private final ImmutableList<RoomGeometricShapeAdapter> roomsGeometrics;
 
-  private final Apartment apartment;
-
-  ApartmentCalculatorImpl(Apartment apartment) {
-    this.apartment = apartment;
+  private ApartmentCalculatorImpl(Apartment apartment) {
+    this.roomsGeometrics =
+        apartment.getRoomList().stream()
+            .map(RoomGeometricShapeAdapter::from)
+            .collect(ImmutableList.toImmutableList());
   }
 
-  public static ApartmentCalculatorImpl from(Apartment apartment) {
+  public static ApartmentCalculatorImpl from(Apartment apartment){
     return new ApartmentCalculatorImpl(apartment);
   }
 
   @Override
   public double calculateFloorArea() {
-    return apartment.getRoomList().stream()
-        .map(this::calculateFloorSurface)
+    return roomsGeometrics.stream()
+        .map(RoomGeometricShapeAdapter::getFloor)
+        .map(Polygon::getArea)
         .mapToDouble(Double::doubleValue)
         .sum();
-  }
-
-  private double calculateFloorSurface(Room room) {
-    return room.getLength() * room.getWidth();
   }
 
   @Override
   public double calculateWallSurfaceArea() {
-    return apartment.getRoomList().stream()
-        .map(this::calculateWallSurface)
+    return roomsGeometrics.stream()
+        .map(RoomGeometricShapeAdapter::getWalls)
+        .flatMap(Collection::stream)
+        .map(Polygon::getArea)
         .mapToDouble(Double::doubleValue)
         .sum();
-  }
-
-  private double calculateWallSurface(Room room) {
-    double wallByLength = room.getLength() * room.getHeight();
-    double wallByWidth = room.getWidth() * room.getHeight();
-    return wallByLength * 2 + wallByWidth * 2;
   }
 }

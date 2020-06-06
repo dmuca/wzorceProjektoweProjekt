@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import pl.com.muca.apartment.Apartment;
 import pl.com.muca.apartment.Room;
 import pl.com.muca.calculator.ApartmentCalculator;
-import pl.com.muca.calculator.ApartmentCalculatorAdapterImpl;
+import pl.com.muca.calculator.ApartmentCalculatorImpl;
 
 public class ApartmentPrinter {
   private static ApartmentPrinter instance;
@@ -30,9 +30,7 @@ public class ApartmentPrinter {
   }
 
   private static String getApartamentInfo(Apartment apartment) {
-    // TODO tutaj można zmieniać implementacje interfejsu ApartmentCalculator.
-//    ApartmentCalculator calc = ApartmentCalculatorImpl.from(apartment);
-    ApartmentCalculator calc = ApartmentCalculatorAdapterImpl.from(apartment);
+    ApartmentCalculator calc = ApartmentCalculatorImpl.from(apartment);
     return new StringBuilder()
         .append(String.format("\tPowierzchnia podłóg: %-9s%n", calc.calculateFloorArea()+" m^2"))
         .append(String.format("\tPowierzchnia ścian:  %-9s %n", calc.calculateWallSurfaceArea()+" m^2"))
