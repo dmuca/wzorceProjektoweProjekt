@@ -5,10 +5,18 @@ import static java.util.stream.Collectors.joining;
 import java.io.PrintStream;
 
 public class ApartmentPrinter {
+  private static ApartmentPrinter instance;
   private PrintStream printStream;
 
   ApartmentPrinter(PrintStream printStream) {
     this.printStream = printStream;
+  }
+
+  public static ApartmentPrinter getInstance() {
+    if (ApartmentPrinter.instance == null){
+      ApartmentPrinter.instance = new ApartmentPrinter(System.out);
+    }
+    return ApartmentPrinter.instance;
   }
 
   void print(Apartment apartment) {

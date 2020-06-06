@@ -4,10 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 
+/** Program wykorzystuje:
+ *  1. Wzorzec adapter (Adapter).
+ *  2. Wzorzec projektowy budowniczy (Builder).
+ *  3. Wzorzec projektowy Singleton.
+ *  3. Statyczne metody fabryczne
+ * */
 public class Main {
   public static void main(String[] args) {
-//    System.out.println(System.getProperty("java.class.path").replace(':','\n'));
-    ApartmentPrinter apartmentPrinter = new ApartmentPrinter(System.out);
+    ApartmentPrinter apartmentPrinter = ApartmentPrinter.getInstance();
 
     if (args.length == 0) {
       System.out.println("Musisz podać ścieżkę do pliku który chcesz wczytać.");
