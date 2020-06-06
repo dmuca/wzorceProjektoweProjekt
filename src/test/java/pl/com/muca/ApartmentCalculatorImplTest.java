@@ -2,16 +2,20 @@ package pl.com.muca;
 
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.base.Function;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import java.util.function.Function;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pl.com.muca.apartment.Apartment;
+import pl.com.muca.calculator.ApartmentCalculator;
+import pl.com.muca.calculator.ApartmentCalculatorAdapterImpl;
 
 public class ApartmentCalculatorImplTest {
   private final static double DELTA_ACCURACY = 10E-3;
-  private Function<Apartment, ApartmentCalculator> calculator;
+  private Function<Apartment, @Nullable ApartmentCalculator> calculator;
 
   @BeforeClass
   public void setUp(){

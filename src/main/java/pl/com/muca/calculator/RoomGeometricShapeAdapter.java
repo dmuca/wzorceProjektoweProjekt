@@ -1,8 +1,9 @@
-package pl.com.muca;
+package pl.com.muca.calculator;
 
 import com.google.common.collect.ImmutableList;
 import org.locationtech.jts.geom.Polygon;
 import org.locationtech.jts.util.GeometricShapeFactory;
+import pl.com.muca.apartment.Room;
 
 public class RoomGeometricShapeAdapter {
 

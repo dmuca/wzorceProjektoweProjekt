@@ -3,6 +3,7 @@ package pl.com.muca;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import pl.com.muca.apartment.Apartment;
 
 /** Program wykorzystuje:
  *  1. Wzorzec adapter (klasy ApartmentCalculatorAdapterImpl, RoomGeometricShapeAdapter).

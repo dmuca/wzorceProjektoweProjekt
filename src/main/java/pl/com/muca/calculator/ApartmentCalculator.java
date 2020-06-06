@@ -1,4 +1,4 @@
-package pl.com.muca;
+package pl.com.muca.calculator;
 
 public interface ApartmentCalculator {
   double calculateFloorArea();

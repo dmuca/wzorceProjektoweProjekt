@@ -1,4 +1,4 @@
-package pl.com.muca;
+package pl.com.muca.apartment;
 
 public final class Room {
   private final String name;

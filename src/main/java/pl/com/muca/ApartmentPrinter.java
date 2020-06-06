@@ -3,10 +3,14 @@ package pl.com.muca;
 import static java.util.stream.Collectors.joining;
 
 import java.io.PrintStream;
+import pl.com.muca.apartment.Apartment;
+import pl.com.muca.apartment.Room;
+import pl.com.muca.calculator.ApartmentCalculator;
+import pl.com.muca.calculator.ApartmentCalculatorAdapterImpl;
 
 public class ApartmentPrinter {
   private static ApartmentPrinter instance;
-  private PrintStream printStream;
+  private final PrintStream printStream;
 
   ApartmentPrinter(PrintStream printStream) {
     this.printStream = printStream;

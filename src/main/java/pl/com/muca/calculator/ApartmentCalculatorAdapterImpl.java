@@ -1,8 +1,9 @@
-package pl.com.muca;
+package pl.com.muca.calculator;
 
 import com.google.common.collect.ImmutableList;
 import java.util.Collection;
 import org.locationtech.jts.geom.Polygon;
+import pl.com.muca.apartment.Apartment;
 
 public class ApartmentCalculatorAdapterImpl implements ApartmentCalculator {
   private final ImmutableList<RoomGeometricShapeAdapter> roomsGeometrics;

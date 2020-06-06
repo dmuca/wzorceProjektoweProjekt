@@ -1,4 +1,7 @@
-package pl.com.muca;
+package pl.com.muca.calculator;
+
+import pl.com.muca.apartment.Apartment;
+import pl.com.muca.apartment.Room;
 
 public class ApartmentCalculatorImpl implements ApartmentCalculator{
 

@@ -1,9 +1,10 @@
-package pl.com.muca;
+package pl.com.muca.apartment;
 
 import com.google.common.collect.ImmutableList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
+import pl.com.muca.calculator.RoomsFileReader;
 
 public class Apartment {
 
