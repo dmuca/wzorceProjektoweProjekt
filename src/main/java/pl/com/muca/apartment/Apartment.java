@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
-import pl.com.muca.calculator.RoomsFileReader;
+import pl.com.muca.RoomsFileReader;
 
 public class Apartment {
 

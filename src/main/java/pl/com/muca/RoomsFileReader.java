@@ -1,4 +1,4 @@
-package pl.com.muca.calculator;
+package pl.com.muca;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
