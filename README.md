@@ -1,8 +1,12 @@
-**Obliczanie pola powierzchni podłóg oraz ścian w domu/mieszkaniu na podstawie danych pliku txt.**  
-W pliku wypisane są pomieszczenia, ich szerokość, długość oraz wysokość.  
+# Program obliczający parametry mieszkań
+
+### 1. Opis programu
+Program pozwala na obliczanie pola powierzchni podłóg oraz ścian w domu/mieszkaniu na podstawie danych pliku txt.  
+W pliku zapisane są pomieszczenia, ich szerokość, długość oraz wysokość.  
 Program oblicza pole powierzchni poszczególnych pomieszczeń oraz całkowity metraż domu.  
 Dla uproszczenia zakładam, że wszystkie pomieszczenia mają kształt prostopadłościanu.
 
+### 2. Format pliku txt wczytywanego przez program
 Format pliku txt (wyrażone w metrach):
 ```
 Nazwa pomieszczenia;szerokość;długość;wysokość;
@@ -15,29 +19,80 @@ Salon;5;5;2.5;
 Salon;6;6;2.5;
 ```
 
-Przykładowy wynik działania programu:  
+### 3. Przykładowy wynik działania programu
+  
 ```
-Kuchnia (4m x 3m x 2.5m) 
-    Powierzchnia podłogi: 12m^2
-     Powierzchnia sufitu: 12m^2
-      Powierzchnia ścian: 35m^2
-  Objętość pomieszczenia: 30m^3
-
-Salon (5m x 5m x 2.5m)
-    Powierzchnia podłogi: 25m^2
-     Powierzchnia sufitu: 25m^2
-      Powierzchnia ścian: 50m^2
-  Objętość pomieszczenia: 62,5m^3
-
-Łazienka (2m x 3m x 2.5m)
-    ...
-
-Salon (6m x 6m 2.5m)
-    ...
-
-Dom/mieszkanie
-    Powierzchnia podłogi: 25m^2
-     Powierzchnia sufitu: 25m^2
-      Powierzchnia ścian: 50m^2
-                Objętość: 500,5m^3
+##### Apartament house_1 ##### 
+	Powierzchnia podłóg: 79.0 m^2 
+	Powierzchnia ścian:  170.0 m^2 
+ 
+Kuchnia 
+	Szerokość: 3.0 m^2 
+	Długość:   4.0 m^2 
+	Wysokość:  2.5 m^2 
+Salon 1 
+	Szerokość: 5.0 m^2 
+	Długość:   5.0 m^2 
+	Wysokość:  2.5 m^2 
+Łazienka 
+	Szerokość: 3.0 m^2 
+	Długość:   2.0 m^2 
+	Wysokość:  2.5 m^2 
+Salon 2 
+	Szerokość: 6.0 m^2 
+	Długość:   6.0 m^2 
+	Wysokość:  2.5 m^2 
+ 
+##### Apartament house_2 ##### 
+	Powierzchnia podłóg: 137.0 m^2
+	Powierzchnia ścian:  275.0 m^2 
+ 
+Kuchnia 
+	Szerokość: 5.0 m^2 
+	Długość:   5.0 m^2 
+	Wysokość:  2.5 m^2 
+Salon 1 
+	Szerokość: 6.0 m^2 
+	Długość:   7.0 m^2 
+	Wysokość:  2.5 m^2 
+Łazienka 
+	Szerokość: 3.0 m^2 
+	Długość:   4.0 m^2 
+	Wysokość:  2.5 m^2 
+Pokój 1 
+	Szerokość: 4.0 m^2 
+	Długość:   4.0 m^2 
+	Wysokość:  2.5 m^2 
+Pokój 2 
+	Szerokość: 2.0 m^2 
+	Długość:   3.0 m^2 
+	Wysokość:  2.5 m^2 
+Salon 2 
+	Szerokość: 6.0 m^2 
+	Długość:   6.0 m^2 
+	Wysokość:  2.5 m^2 
 ```
+
+<hr/>
+
+### 4. Wykorzystane wzorce projektowe
+
+
+Program wykorzystuje poniższe wzorce projektowe:
+- Wzorzec <b>adapter</b> (klasy ApartmentCalculatorAdapterImpl, RoomGeometricShapeAdapter).  
+  Wykorzystuje on klasy <b>Shape</b>, <b>GeometricShapeFactory</b> z zewnętrznej biblioteki [Java Topology Suite](https://github.com/locationtech/jts)
+- Wzorzec projektowy <b>budowniczy</b> (klasa Room).
+- Wzorzec projektowy <b>singleton</b> (klasa ApartmentPrinter).
+
+<hr/>
+
+### 5. Diagram klas UML
+
+Diagram można znaleźć w plikach projektu (<b>diagram_klas_uml.png</b>).  
+![Image description](diagram_klas_uml.png)
+
+### 6. Autor projektu
+
+Damian Muca  
+Informatyka, studia niestacjonarne I stopnia   
+Grupa L2, numer indeksu: 137271   
