@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 
 /** Program wykorzystuje:
- *  1. Wzorzec adapter (Adapter).
- *  2. Wzorzec projektowy budowniczy (Builder).
- *  3. Wzorzec projektowy Singleton.
- *  3. Statyczne metody fabryczne
+ *  1. Wzorzec adapter (klasy ApartmentCalculatorAdapterImpl, RoomGeometricShapeAdapter).
+ *  2. Wzorzec projektowy budowniczy (klasa Room).
+ *  3. Wzorzec projektowy Singleton (klasa ApartmentPrinter).
  * */
 public class Main {
   public static void main(String[] args) {
