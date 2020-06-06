@@ -22,7 +22,7 @@ Salon;6;6;2.5;
 ### 3. Przykładowy wynik działania programu
   
 ```
-##### Apartament house_1 ##### 
+##### Apartament Dom1 ##### 
 	Powierzchnia podłóg: 79.0 m^2 
 	Powierzchnia ścian:  170.0 m^2 
  
@@ -41,36 +41,7 @@ Salon 1
 Salon 2 
 	Szerokość: 6.0 m^2 
 	Długość:   6.0 m^2 
-	Wysokość:  2.5 m^2 
- 
-##### Apartament house_2 ##### 
-	Powierzchnia podłóg: 137.0 m^2
-	Powierzchnia ścian:  275.0 m^2 
- 
-Kuchnia 
-	Szerokość: 5.0 m^2 
-	Długość:   5.0 m^2 
-	Wysokość:  2.5 m^2 
-Salon 1 
-	Szerokość: 6.0 m^2 
-	Długość:   7.0 m^2 
-	Wysokość:  2.5 m^2 
-Łazienka 
-	Szerokość: 3.0 m^2 
-	Długość:   4.0 m^2 
-	Wysokość:  2.5 m^2 
-Pokój 1 
-	Szerokość: 4.0 m^2 
-	Długość:   4.0 m^2 
-	Wysokość:  2.5 m^2 
-Pokój 2 
-	Szerokość: 2.0 m^2 
-	Długość:   3.0 m^2 
-	Wysokość:  2.5 m^2 
-Salon 2 
-	Szerokość: 6.0 m^2 
-	Długość:   6.0 m^2 
-	Wysokość:  2.5 m^2 
+	Wysokość:  2.5 m^2  
 ```
 
 <hr/>
