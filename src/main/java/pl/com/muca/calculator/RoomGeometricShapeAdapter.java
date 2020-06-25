@@ -8,7 +8,6 @@ import pl.com.muca.apartment.Room;
 public class RoomGeometricShapeAdapter {
 
   private final Polygon floor;
-  private final Polygon ceil;
   private final ImmutableList<Polygon> walls;
 
   private RoomGeometricShapeAdapter(Room room) {
@@ -16,7 +15,6 @@ public class RoomGeometricShapeAdapter {
     double width = room.getWidth();
     double height = room.getHeight();
     this.floor = shapeFrom(width, length).createRectangle();
-    this.ceil = shapeFrom(width, length).createRectangle();
     this.walls =
         ImmutableList.of(
             shapeFrom(width, height).createRectangle(),
@@ -36,15 +34,13 @@ public class RoomGeometricShapeAdapter {
     return geometricShapeFactory;
   }
 
-  public Polygon getFloor() {
-    return floor;
+  public double getFloorArea() {
+    return floor.getArea();
   }
 
-  public Polygon getCeil() {
-    return ceil;
-  }
-
-  public ImmutableList<Polygon> getWalls() {
-    return walls;
+  public double getWallsArea() {
+    return walls.stream().map(Polygon::getArea)
+        .mapToDouble(Double::doubleValue)
+        .sum();
   }
 }

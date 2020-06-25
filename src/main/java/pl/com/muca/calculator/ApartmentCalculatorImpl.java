@@ -22,8 +22,7 @@ public class ApartmentCalculatorImpl implements ApartmentCalculator {
   @Override
   public double calculateFloorArea() {
     return roomsGeometrics.stream()
-        .map(RoomGeometricShapeAdapter::getFloor)
-        .map(Polygon::getArea)
+        .map(RoomGeometricShapeAdapter::getFloorArea)
         .mapToDouble(Double::doubleValue)
         .sum();
   }
@@ -31,9 +30,7 @@ public class ApartmentCalculatorImpl implements ApartmentCalculator {
   @Override
   public double calculateWallSurfaceArea() {
     return roomsGeometrics.stream()
-        .map(RoomGeometricShapeAdapter::getWalls)
-        .flatMap(Collection::stream)
-        .map(Polygon::getArea)
+        .map(RoomGeometricShapeAdapter::getWallsArea)
         .mapToDouble(Double::doubleValue)
         .sum();
   }
