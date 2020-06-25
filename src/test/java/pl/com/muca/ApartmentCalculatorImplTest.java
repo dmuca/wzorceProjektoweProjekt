@@ -19,7 +19,6 @@ public class ApartmentCalculatorImplTest {
 
   @BeforeClass
   public void setUp(){
-//    calculator = ApartmentCalculatorImpl::from;
     calculator = ApartmentCalculatorImpl::from;
   }
 
