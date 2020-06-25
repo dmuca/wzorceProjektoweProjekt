@@ -50,10 +50,10 @@ Salon 2
 
 
 Program wykorzystuje poniższe wzorce projektowe:
-- Wzorzec <b>adapter</b> (klasy ApartmentCalculatorAdapterImpl, RoomGeometricShapeAdapter).  
+- Wzorzec <b>adapter</b> (klasa [RoomGeometricShapeAdapter](src/main/java/pl/com/muca/calculator/RoomGeometricShapeAdapter.java)).  
   Wykorzystuje on klasy <b>Shape</b>, <b>GeometricShapeFactory</b> z zewnętrznej biblioteki [Java Topology Suite](https://github.com/locationtech/jts)
-- Wzorzec projektowy <b>budowniczy</b> (klasa Room).
-- Wzorzec projektowy <b>singleton</b> (klasa ApartmentPrinter).
+- Wzorzec projektowy <b>budowniczy</b> (klasa [Room](src/main/java/pl/com/muca/apartment/Room.java)).
+- Wzorzec projektowy <b>singleton</b> (klasa [ApartmentPrinter](src/main/java/pl/com/muca/ApartmentPrinter.java)).
 
 <hr/>
 
