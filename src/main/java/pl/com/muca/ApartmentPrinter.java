@@ -12,7 +12,7 @@ public class ApartmentPrinter {
   private static ApartmentPrinter instance;
   private final PrintStream printStream;
 
-  ApartmentPrinter(PrintStream printStream) {
+  private ApartmentPrinter(PrintStream printStream) {
     this.printStream = printStream;
   }
 
