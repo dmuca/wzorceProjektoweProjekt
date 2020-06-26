@@ -23,10 +23,11 @@ public class ApartmentPrinter {
     return ApartmentPrinter.instance;
   }
 
-  void print(Apartment apartment) {
-    printStream.printf("##### Apartament %s ##### %n", apartment.getName().split("\\.")[0]);
-    printStream.printf("%s %n", getApartamentInfo(apartment));
-    printStream.printf("%s %n", getRoomsInfo(apartment));
+  synchronized void print(Apartment apartment) {
+    String apartmentName = String.format("##### Apartament %s ##### %n", apartment.getName().split("\\.")[0]);
+    String apartmentInfo = String.format("%s %n", getApartamentInfo(apartment));
+    String apartmentRoomsInfo = String.format("%s %n", getRoomsInfo(apartment));
+    printStream.printf("%s %s %s", apartmentName, apartmentInfo, apartmentRoomsInfo);
   }
 
   private static String getApartamentInfo(Apartment apartment) {
