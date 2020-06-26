@@ -6,7 +6,7 @@ import java.text.ParseException;
 import pl.com.muca.apartment.Apartment;
 
 /** Program wykorzystuje:
- *  1. Wzorzec adapter (klasy ApartmentCalculatorAdapterImpl, RoomGeometricShapeAdapter).
+ *  1. Wzorzec adapter (klasa RoomGeometricShapeAdapter).
  *  2. Wzorzec projektowy budowniczy (klasa Room).
  *  3. Wzorzec projektowy Singleton (klasa ApartmentPrinter).
  * */
