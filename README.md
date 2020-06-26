@@ -64,6 +64,4 @@ Diagram można znaleźć w plikach projektu (<b>diagram_klas_uml.png</b>).
 
 ### 6. Autor projektu
 
-Damian Muca  
-Informatyka, studia niestacjonarne I stopnia   
-Grupa L2, numer indeksu: 137271   
+Damian Muca
