@@ -2,7 +2,8 @@ package pl.com.muca;
 
 import static java.util.stream.Collectors.joining;
 
-import java.io.PrintStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import pl.com.muca.apartment.Apartment;
 import pl.com.muca.apartment.Room;
 import pl.com.muca.calculator.ApartmentCalculator;
@@ -10,24 +11,29 @@ import pl.com.muca.calculator.ApartmentCalculatorImpl;
 
 public class ApartmentPrinter {
   private static ApartmentPrinter instance;
-  private final PrintStream printStream;
+  private final PrintWriter printWriter;
 
-  private ApartmentPrinter(PrintStream printStream) {
-    this.printStream = printStream;
+  private ApartmentPrinter(PrintWriter printWriter) {
+    this.printWriter = printWriter;
   }
 
-  public static ApartmentPrinter getInstance() {
+  public static synchronized ApartmentPrinter getInstance() {
     if (ApartmentPrinter.instance == null){
-      ApartmentPrinter.instance = new ApartmentPrinter(System.out);
+      try {
+        PrintWriter writer = new PrintWriter("wynik.txt");
+        ApartmentPrinter.instance = new ApartmentPrinter(writer);
+      } catch (FileNotFoundException e) {
+        e.printStackTrace();
+      }
     }
     return ApartmentPrinter.instance;
   }
 
   synchronized void print(Apartment apartment) {
-    String apartmentName = String.format("##### Apartament %s ##### %n", apartment.getName().split("\\.")[0]);
-    String apartmentInfo = String.format("%s %n", getApartamentInfo(apartment));
-    String apartmentRoomsInfo = String.format("%s %n", getRoomsInfo(apartment));
-    printStream.printf("%s %s %s", apartmentName, apartmentInfo, apartmentRoomsInfo);
+    printWriter.printf("##### Apartament %s ##### %n", apartment.getName().split("\\.")[0]);
+    printWriter.printf("%s %n", getApartamentInfo(apartment));
+    printWriter.printf("%s %n", getRoomsInfo(apartment));
+    printWriter.flush();
   }
 
   private static String getApartamentInfo(Apartment apartment) {
