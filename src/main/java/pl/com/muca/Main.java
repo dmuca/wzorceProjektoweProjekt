@@ -20,9 +20,7 @@ public class Main {
       for (String filePath : args) {
         File file = new File(filePath);
         try {
-          Apartment.from(file);
-          Apartment apartment = Apartment.from(file);
-          apartmentPrinter.print(apartment);
+          apartmentPrinter.print(Apartment.from(file));
         } catch (FileNotFoundException e) {
           System.out.printf("Nie mogłem znaleźć pliku \"%s\".%n", filePath);
           e.printStackTrace();
