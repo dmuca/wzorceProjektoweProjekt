@@ -27,10 +27,10 @@ public class RoomGeometricShapeAdapter {
     return new RoomGeometricShapeAdapter(room);
   }
 
-  private GeometricShapeFactory shapeFrom(double width, double height) {
+  private GeometricShapeFactory shapeFrom(double x, double y) {
     GeometricShapeFactory geometricShapeFactory = new GeometricShapeFactory();
-    geometricShapeFactory.setWidth(width);
-    geometricShapeFactory.setHeight(height);
+    geometricShapeFactory.setWidth(x);
+    geometricShapeFactory.setHeight(y);
     return geometricShapeFactory;
   }
 
