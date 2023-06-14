@@ -18,7 +18,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <testng.version>7.1.0</testng.version>
-    <guava.version>29.0-jre</guava.version>
+    <guava.version>32.0.0-jre</guava.version>
     <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
